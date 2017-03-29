@@ -3,7 +3,88 @@
     <h4>Home</h4>
   </div>
   <div class="ui-content" role="main">
-    <h1>Bienvenidos</h1>
+    <ul data-role="listview" data-filter="true" data-filter-placeholder="Buscar"
+      id="home_encuesta_list">
+
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li>
+          <a href="#new">Nuevo</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- esto es otra pagina -->
+<div data-role="page" id="new">
+  <div data-role="header" data-position="fixed">
+    <h4>Agregar</h4>
+  </div>
+  <div class="ui-content" role="main">
+    <form id="new_form">
+      <label for="txtEncuesta">Nombre de Encuesta</label>
+      <input type="text" id="txtEncuesta" name="txtEncuesta"
+          placeholder="Nombre de Encuesta"/>
+      <label for="txtPregunta1">Pregunta</label>
+      <input type="text" id="txtPregunta1" name="txtPregunta1"
+          placeholder="Pregunta"/>
+      <label for="txtPregunta2">Pregunta</label>
+      <input type="text" id="txtPregunta2" name="txtPregunta2"
+          placeholder="Pregunta"/>
+      <label for="txtPregunta3">Pregunta</label>
+      <input type="text" id="txtPregunta3" name="txtPregunta3"
+          placeholder="Pregunta"/>
+      <a id="btnAgregarEncuesta" class="ui-btn">Agregar</a>
+      <a href="#home" class="ui-btn">Cancelar</a>
+    </form>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h5>2017 CP</h5>
+  </div>
+</div>
+
+<!-- apply  page -->
+<div data-role="page" id="apply">
+  <div data-role="header" data-position="fixed">
+    <h4><span id="apply_encuesta"></span></h4>
+  </div>
+  <div class="ui-content" role="main">
+    <form id="apply_form">
+      <label for="txtEncuesta">Nombre de Encuesta</label>
+
+      <label><span id="apply_txtPregunta1">Pregunta 3</span></label>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+          <input type="hidden" value="" name="encuesta_id" id="encuesta_id"/>
+          <input type="radio" value="1" name="ansValue1"/><label>Muy Malo</label>
+          <input type="radio" value="2" name="ansValue1"/> <label>Malo </label>
+          <input type="radio" value="3" name="ansValue1" checked="checked"/> <label>Regular </label>
+          <input type="radio" value="4" name="ansValue1"/> <label>Bueno</label>
+          <input type="radio" value="5" name="ansValue1"/> <label>Muy Bueno</label>
+      </fieldset>
+      <label><span id="apply_txtPregunta2">Pregunta 2</span></label>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <input type="radio" value="1" name="ansValue2"/> <label>Muy Malo </label>
+        <input type="radio" value="2" name="ansValue2"/><label> Malo </label>
+        <input type="radio" value="3" name="ansValue2" checked="checked"/> <label>Regular</label>
+        <input type="radio" value="4" name="ansValue2"/> <label>Bueno</label>
+        <input type="radio" value="5" name="ansValue2"/> <label>Muy Bueno </label>
+      </fieldset>
+
+      <label><span id="apply_txtPregunta3">Pregunta 3</span></label>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <input type="radio" value="1" name="ansValue3"/> <label>Muy Malo </label>
+        <input type="radio" value="2" name="ansValue3"/> <label>Malo </label>
+        <input type="radio" value="3" name="ansValue3" checked="checked"/> <label>Regular </label>
+        <input type="radio" value="4" name="ansValue3"/> <label>Bueno</label>
+        <input type="radio" value="5" name="ansValue3"/> <label>Muy Bueno </label>
+      </fieldset>
+
+      <a id="btnAplicarEncuesta" class="ui-btn">Guardar</a>
+      <a href="#home" class="ui-btn">Cancelar</a>
+    </form>
   </div>
   <div data-role="footer" data-position="fixed">
     <h5>2017 CP</h5>
