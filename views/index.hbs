@@ -49,40 +49,40 @@
 <!-- apply  page -->
 <div data-role="page" id="apply">
   <div data-role="header" data-position="fixed">
-    <h4><span id="apply_encuesta"></span></h4>
+    <h4>Aplicar</h4>
   </div>
   <div class="ui-content" role="main">
     <form id="apply_form">
-      <label for="txtEncuesta">Nombre de Encuesta</label>
-
-      <label><span id="apply_txtPregunta1">Pregunta 3</span></label>
-      <fieldset data-role="controlgroup" data-type="horizontal">
-          <input type="hidden" value="" name="encuesta_id" id="encuesta_id"/>
-          <input type="radio" value="1" name="ansValue1"/><label>Muy Malo</label>
-          <input type="radio" value="2" name="ansValue1"/> <label>Malo </label>
-          <input type="radio" value="3" name="ansValue1" checked="checked"/> <label>Regular </label>
-          <input type="radio" value="4" name="ansValue1"/> <label>Bueno</label>
-          <input type="radio" value="5" name="ansValue1"/> <label>Muy Bueno</label>
+      <h2 id="apply_encuesta">Nombre de Encuesta</h2>
+      <input type="hidden" value="" name="encuesta_id" id="encuesta_id"/>
+      <h3><span id="apply_txtPregunta1">Pregunta 1</span></h3>
+      <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+          <input type="radio" value="1" name="ansValue1" id="prg1_1"/><label for="prg1_1">Muy Malo</label>
+          <input type="radio" value="2" name="ansValue1" id="prg1_2"/> <label for="prg1_2">Malo</label>
+          <input type="radio" value="3" name="ansValue1" id="prg1_3" checked="checked"/> <label for="prg1_3">Regular</label>
+          <input type="radio" value="4" name="ansValue1" id="prg1_4"/> <label for="prg1_4">Bueno</label>
+          <input type="radio" value="5" name="ansValue1" id="prg1_5"/> <label for="prg1_5">Muy Bueno</label>
       </fieldset>
-      <label><span id="apply_txtPregunta2">Pregunta 2</span></label>
-      <fieldset data-role="controlgroup" data-type="horizontal">
-        <input type="radio" value="1" name="ansValue2"/> <label>Muy Malo </label>
-        <input type="radio" value="2" name="ansValue2"/><label> Malo </label>
-        <input type="radio" value="3" name="ansValue2" checked="checked"/> <label>Regular</label>
-        <input type="radio" value="4" name="ansValue2"/> <label>Bueno</label>
-        <input type="radio" value="5" name="ansValue2"/> <label>Muy Bueno </label>
-      </fieldset>
-
-      <label><span id="apply_txtPregunta3">Pregunta 3</span></label>
-      <fieldset data-role="controlgroup" data-type="horizontal">
-        <input type="radio" value="1" name="ansValue3"/> <label>Muy Malo </label>
-        <input type="radio" value="2" name="ansValue3"/> <label>Malo </label>
-        <input type="radio" value="3" name="ansValue3" checked="checked"/> <label>Regular </label>
-        <input type="radio" value="4" name="ansValue3"/> <label>Bueno</label>
-        <input type="radio" value="5" name="ansValue3"/> <label>Muy Bueno </label>
+      <h3><span id="apply_txtPregunta2">Pregunta 2</span></h3>
+      <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+          <input type="radio" value="1" name="ansValue2" id="prg2_1"/><label for="prg2_1">Muy Malo</label>
+          <input type="radio" value="2" name="ansValue2" id="prg2_2"/> <label for="prg2_2">Malo</label>
+          <input type="radio" value="3" name="ansValue2" id="prg2_3" checked="checked"/> <label for="prg2_3">Regular</label>
+          <input type="radio" value="4" name="ansValue2" id="prg2_4"/> <label for="prg2_4">Bueno</label>
+          <input type="radio" value="5" name="ansValue2" id="prg2_5"/> <label for="prg2_5">Muy Bueno</label>
       </fieldset>
 
-      <a id="btnAplicarEncuesta" class="ui-btn">Guardar</a>
+      <h3><span id="apply_txtPregunta3">Pregunta 3</span></h3>
+      <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+          <input type="radio" value="1" name="ansValue3" id="prg3_1"/><label for="prg3_1">Muy Malo</label>
+          <input type="radio" value="2" name="ansValue3" id="prg3_2"/> <label for="prg3_2">Malo</label>
+          <input type="radio" value="3" name="ansValue3" id="prg3_3" checked="checked"/> <label for="prg3_3">Regular</label>
+          <input type="radio" value="4" name="ansValue3" id="prg3_4"/> <label for="prg3_4">Bueno</label>
+          <input type="radio" value="5" name="ansValue3" id="prg3_5"/> <label for="prg3_5">Muy Bueno</label>
+      </fieldset>
+      <br />
+      <br />
+      <a id="btnAplicarEncuesta" class="ui-btn">Enviar</a>
       <a href="#home" class="ui-btn">Cancelar</a>
     </form>
   </div>

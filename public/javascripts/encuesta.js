@@ -1,6 +1,8 @@
 $(document).on("pagebeforecreate",encuesta_init);
 $(document).on("pagecontainerbeforeshow",encuesta_page_load);
 
+var _currentEncuestaID = null;
+
 //// Utilidades
 var pages = {};
 function registerCreated(pageCreated){
@@ -25,7 +27,7 @@ function encuesta_init(e){
   registerCreated(pageToCreate);
   switch(pageToCreate){
     case "home":
-
+      $("#home_encuesta_list").on('vclick',"a",onLiClick);
       break;
     case "new":
       $("#btnAgregarEncuesta").on("vclick", onAddClick);
@@ -47,6 +49,9 @@ function encuesta_page_load(e, ui){
     case "new":
         limipar_new_values();
       break;
+    case "apply":
+        obtengaDatosEncuesta();
+    break;
   }
 
 }
@@ -72,6 +77,11 @@ function onAddClick(e){
     );
 }
 
+function onLiClick(e){
+  // console.log($(this).data('id'));
+    _currentEncuestaID= $(this).data('id');
+}
+
 function onAddSuccess(data, successTxt, xhrq){
   hideLoading();
   change_page("home");
@@ -95,6 +105,24 @@ function cargar_encuestas_home(){
 
       $("#home_encuesta_list").html($htmlBuffer.join('')).listview('refresh');
     },
+    'json'
+  );
+}
+
+// Funciones de la página apply
+
+function obtengaDatosEncuesta(){
+  $.get(
+    "encuestas/get/" + _currentEncuestaID,
+    {},
+    function(data, sucessTxt, xhrq){
+        console.log(data);
+        $("#apply_encuesta").html(data.Nombre);
+        $("#apply_txtPregunta1").html(data.Pregunta1);
+        $("#apply_txtPregunta2").html(data.Pregunta2);
+        $("#apply_txtPregunta3").html(data.Pregunta3);
+
+    } ,
     'json'
   );
 }

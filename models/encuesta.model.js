@@ -1,3 +1,5 @@
+var ObjectId = require("mongodb").ObjectID;
+
 
 function EncuestasInit(db){
   var encuestaColl = db.collection('Encuestas');
@@ -24,6 +26,17 @@ function EncuestasInit(db){
       }
     });
   }
+  // funcion para obtener un solo documento
+  modeloEncuesta.obtenerEncuestaXId = function(id, handler){
+    encuestaColl.findOne({"_id":ObjectId(id)}, function(err, enc){
+      if(err){
+        handler(err, null);
+      }else{
+        handler(null, enc);
+      }
+    });
+  }
+
 
   return modeloEncuesta;
 
