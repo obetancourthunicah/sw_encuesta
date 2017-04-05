@@ -31,8 +31,9 @@ function encuesta_init(e){
       break;
     case "new":
       $("#btnAgregarEncuesta").on("vclick", onAddClick);
-
       break;
+      case "apply":
+        $("#btnAplicarEncuesta").on("vclick", onAplicarClick);
   }
 }
 
@@ -125,4 +126,22 @@ function obtengaDatosEncuesta(){
     } ,
     'json'
   );
-}
+} //obtengaDatosEncuesta
+
+function onAplicarClick(e){
+    var uri = "encuestas/" + _currentEncuestaID + "/resp";
+    var data = {"resp1":"","resp2":"","resp3":"","comment":""};
+    data.resp1 = $('input[name=ansValue1]:checked').val();
+    data.resp2 = $('input[name=ansValue2]:checked').val();
+    data.resp3 = $('input[name=ansValue3]:checked').val();
+    data.comment =  $("#txtComentario").val();
+    $.post(
+      uri,
+      data,
+      function(data,sucessTxt, xhrq){
+        alert("Encuesta Aplicada ha sido guardad exitosamente!");
+        change_page("home");
+      },
+      'json'
+    );
+} //onAplicarClick

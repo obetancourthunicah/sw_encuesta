@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var EncuestasFabric = require('../models/encuesta.model.js');
+var ObjectID = require("mongodb").ObjectID;
 
 function initRouter(db){
   var encuestaMdl = EncuestasFabric(db);
@@ -34,6 +35,19 @@ function initRouter(db){
       });
 
     }); // end /add
+
+    router.post("/:idencuesta/resp", function(req,res,next){
+      var response = {"encuestaId":ObjectID(req.params.idencuesta),
+                        "respuesta1": req.body.resp1,
+                        "respuesta2": req.body.resp2,
+                        "respuesta3": req.body.resp3,
+                        "comentario": req.body.comment
+                      };
+        encuestaMdl.agregarRespuesta(response, function(err, respAgregada){
+          if(err) return res.status(404).json({"error":"Error al grabar Respuesta de encuesta"});
+          return res.status(200).json(respAgregada);
+        });
+    });//end post resp
 
   return router;
 }

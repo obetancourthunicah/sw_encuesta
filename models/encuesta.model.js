@@ -6,6 +6,7 @@ function EncuestasInit(db){
   var encuestaRespColl = db.collection('Respuestas');
   var modeloEncuesta = {};
   // funcion para agregar Encuestas
+
   modeloEncuesta.agregarEncuesta = function(data, handler){
         encuestaColl.insert(data, function(err, doc){
           if(err){
@@ -37,6 +38,15 @@ function EncuestasInit(db){
     });
   }
 
+  modeloEncuesta.agregarRespuesta = function(data, handler){
+      encuestaRespColl.insert(data, function(err,doc){
+        if(err){
+          handler(err, null);
+        }else{
+          handler(null, doc);
+        }
+      });
+  }
 
   return modeloEncuesta;
 
